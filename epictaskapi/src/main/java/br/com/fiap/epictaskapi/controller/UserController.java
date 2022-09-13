@@ -58,6 +58,14 @@ public class UserController {
 
     @GetMapping("{id}")
     public ResponseEntity<User> show(@PathVariable Long id) {
+        User usua = ResponseEntity.of(service.get(id)).getBody();
+
+        UserDto usuarioDTO = new UserDto();
+        usuarioDTO.setId(usua.getId());
+        usuarioDTO.setName(usua.getName());
+        usuarioDTO.setEmail(usua.getEmail());
+        //Long idDto = usuarioDTO.getId();
+
         return ResponseEntity.of(service.get(id));
     }
 
@@ -65,7 +73,6 @@ public class UserController {
     //@CacheEvict(value = "tasks", allEntries = true)
     public ResponseEntity<Object> destroy(@PathVariable Long id) {
         Optional<User> optional = service.get(id);
-        System.out.println("AQUI************************************");
 
         if (optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
