@@ -50,7 +50,6 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> create(@RequestBody @Valid User user) {
-        //User usuario = user;
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         service.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
@@ -60,10 +59,10 @@ public class UserController {
     public ResponseEntity<User> show(@PathVariable Long id) {
         User usua = ResponseEntity.of(service.get(id)).getBody();
 
-        UserDto usuarioDTO = new UserDto();
-        usuarioDTO.setId(usua.getId());
-        usuarioDTO.setName(usua.getName());
-        usuarioDTO.setEmail(usua.getEmail());
+        // UserDto usuarioDTO = new UserDto();
+        // usuarioDTO.setId(usua.getId());
+        // usuarioDTO.setName(usua.getName());
+        // usuarioDTO.setEmail(usua.getEmail());
         //Long idDto = usuarioDTO.getId();
 
         return ResponseEntity.of(service.get(id));
