@@ -1,0 +1,56 @@
+<!-->
+# Listar todos
+GET http://localhost:8080/api/task
+
+###
+
+# Cadastrar
+POST http://localhost:8080/api/task
+Content-Type: application/json
+Authorization: Basic joao@fiap.com.br 123
+
+{
+      "title": "BD",
+      "description": "modelar o banco",
+      "score": 100,
+      "status": 0
+}
+-->
+
+
+
+## User
+
+# Listar usuários
+GET http://localhost:8080/api/user
+###
+
+# Detalhes do usuário
+GET http://localhost:8080/api/user/2
+###
+
+# Cadastrar usuário
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+      "name": "João Carlos Lima",
+      "email": "joao@fiap.com.br",
+      "password": "123"
+}
+###
+
+# Apagar usuário
+DELETE http://localhost:8080/api/user/2
+Authorization: Basic admin@fiap.com.br administrador
+###
+
+# Alterar usuário
+PUT http://localhost:8080/api/user/2
+Authorization: Basic admin@fiap.com.br administrador
+Content-Type: application/json
+
+{
+      "name": "Maria Pereira",
+      "email": "maria@fiap.com.br",
+}
