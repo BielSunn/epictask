@@ -57,7 +57,7 @@ public class UserController {
 
     @GetMapping("{id}")
     public ResponseEntity<User> show(@PathVariable Long id) {
-        User usua = ResponseEntity.of(service.get(id)).getBody();
+        //User usua = ResponseEntity.of(service.get(id)).getBody();
 
         // UserDto usuarioDTO = new UserDto();
         // usuarioDTO.setId(usua.getId());
